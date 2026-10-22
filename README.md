@@ -1,82 +1,37 @@
-# TechGlam — E-commerce demonstrativo
+# TechGlam — catálogo demonstrativo
 
-**Tecnologia que Realça seu Brilho.**
+Site responsivo em HTML, CSS e JavaScript puro. Exibe os produtos TechGlam informados para este catálogo, incluindo a linha tecnológica Glamix. As imagens são mockups conceituais gerados por IA e identificados como ilustrativos no site.
 
-Site responsivo desenvolvido em HTML, CSS e JavaScript puro, sem instalação de dependências. Inclui página inicial, catálogo, filtros, detalhes, favoritos, sacola de compras, cupons, frete estimado, login/cadastro demonstrativos, área da conta, checkout de demonstração, institucional, contato e Lila Glam.
+## Executar
 
-## Executar localmente
+Na pasta do projeto, execute `python3 -m http.server 5500` (Linux/macOS) ou `python -m http.server 5500` (Windows) e abra <http://localhost:5500>.
 
-1. Abra um terminal na pasta `TechGlam`.
-2. Execute `python -m http.server 5500` (Windows) ou `python3 -m http.server 5500` (Linux/macOS).
-3. Acesse <http://localhost:5500> em um navegador atualizado.
+## Catálogo
 
-Alternativa: `npx serve .` (se já tiver Node.js e o pacote disponível). Para usar Web Crypto no login, prefira `http://localhost` ou HTTPS em vez de abrir `index.html` por `file://`.
+| Produto | Preço | Opções |
+| --- | ---: | ---: |
+| Blush Bastão | R$ 45,00 | 5 |
+| Blush Líquido | R$ 45,00 | 5 |
+| Paleta de Blush | R$ 50,00 | 5 |
+| Paleta de Sombra | R$ 70,00 | 6 |
+| Lip Gloss Tradicional | R$ 46,00 | 10 |
+| Lip Oil Fruits | R$ 46,00 | 5 |
+| Kit Esponjas | R$ 30,00 | — |
+| Kit Pincéis | R$ 50,00 | — |
+| Impressora de Maquiagem Glamix, com cinco cartuchos | R$ 1.650,00 | — |
+| Kit com 5 Cartuchos Glamix | R$ 500,00 | — |
+| Cartucho Individual / Refil Glamix | R$ 120,00 | 5 |
 
-## Testes de lógica
+Os dados do catálogo estão em `data.js`; as 45 imagens de produto estão em `assets/products/`. Cores e sabores são selecionados na página do produto, com imagem, nome e descrição sincronizados.
 
-Execute `node tests/smoke.cjs` e `node tests/variants.cjs` para validar rotas, carrinho, login, checkout demonstrativo e sincronização de variantes. Esses testes não substituem testes de interface no navegador.
+## Experiência Glamix
 
-## Funcionalidades
+A página `#glamix` apresenta o equipamento, seu preço de R$ 1.650,00, os cinco cartuchos inclusos e uma exploração interativa por etapas e componentes. A página inicial também traz uma prévia interativa. Três imagens complementares geradas para a seção mostram os cartuchos, o espelho com pincel e o recipiente sob a saída inferior; todas são mockups ilustrativos.
 
-| Área | Implementação |
-| --- | --- |
-| Vitrine e catálogo | 16 produtos fictícios com ilustrações SVG originais; busca, filtros e ordenação |
-| Produtos | Galeria com setas, swipe e seleção de variantes sincronizada, estoque de exemplo e inclusão na sacola |
-| Carrinho | Adição, exclusão, alteração de quantidades, subtotal, desconto, cupom e frete estimado |
-| Favoritos | Persistidos por perfil; favoritos de visitante migram no login |
-| Conta | Cadastro, login, senha derivada com Web Crypto/PBKDF2, edição do perfil, pedidos e cupons — **somente local** |
-| Checkout | Login obrigatório, carrinho preservado, dados de entrega e criação de pedido **fictício** |
-| Lila Glam (chat) | Perguntas guiadas respondidas por regras preprogramadas, não é uma IA generativa |
-| Lila Glam (foto) | Consentimento, foto processada **localmente**, estimativa experimental de cor por pixels, ajuste manual, quiz de 6 perguntas, sugestões e desconto |
-| Atendimento | Formulário validado e registrado apenas no armazenamento local |
+A linha Glamix é apresentada como pronta para venda conforme a informação fornecida pela TechGlam. Este site continua registrando apenas pedidos demonstrativos, sem pagamento ou envio real. A apresentação não promete tipos de cosméticos além das formulações compatíveis com o equipamento.
 
-## Regras comerciais do protótipo
+## Demonstração e testes
 
-- **BEMVINDA10**: 10% OFF para contas sem pedido anterior.
-- **Campanha sazonal**: cupom de 5 a 12%, conforme a data (por exemplo, `ROSA7` em outubro).
-- **GLAM5**: cupom de 5%.
-- **Acima de R$ 150** de subtotal após descontos de vitrine: frete grátis e 5% OFF automático.
-- **Primeira compra autenticada**: frete grátis.
-- **Lila Glam**: 8% OFF nos produtos recomendados após finalizar a análise; acumula com o 5% automático acima de R$ 150.
-- **Cupons NÃO acumulam** com o desconto da Lila ou com o 5% automático; usar cupom substitui esses benefícios (frete grátis continua seguindo seus critérios).
-- Os descontos da vitrine (preço `oldPrice` comparado com preço atual) já integram o preço de venda e podem coexistir com as regras acima.
-- O cálculo do frete é apenas uma simulação (R$ 14,90 ou R$ 22,90 dependendo dos primeiros dígitos do CEP), sem API postal.
+O carrinho, cadastro, favoritos, pedidos, chat e análise Lila Glam funcionam apenas neste navegador. Não há pagamento, envio, cálculo de frete ou estoque em tempo real. O total demonstrativo é a soma dos preços dos produtos, sem descontos. A análise de foto ocorre localmente e oferece sugestões sem benefício comercial.
 
-## Limitações e cuidados importantes
-
-Este pacote é um **protótipo navegável**, não uma loja preparada para produção.
-
-- **Não integra pagamentos, antifraude, estoque ou transportadoras reais.** Nenhum pedido, Pix, boleto ou cartão gera cobrança.
-- **Não possui autenticação segura de produção.** A senha é derivada com PBKDF2 no navegador e não é armazenada em texto puro, mas os registros e a sessão são totalmente controlados pelo próprio cliente (localStorage). A redefinição de senha não exige verificação de e-mail — existe apenas para ilustrar o fluxo. Não utilizar senhas reais nem dados pessoais reais.
-- **Não possui IA de verdade.** O chat usa reconhecimento simples de palavras. A análise de imagem calcula uma estimativa grosseira de luminosidade/cor numa região central da foto e **não detecta pele ou rosto**. O usuário pode corrigir o tom/subtom. **Não é avaliação clínica, científica ou precisa.** A foto não é enviada nem persistida; apenas os dados da análise são guardados no perfil local.
-- **Catálogo, avaliações, preços, estoque, contatos e ilustrações são fictícios.** O PDF `Techglam2.pdf` citado na solicitação não estava disponível ao montar esta versão. Atualize `data.js` e `assets/` quando houver imagens e produtos oficiais.
-- A apresentação Canva exigia acesso não disponível; a identidade usa as cores especificadas `#B489E8` e `#EDECEB` e organização inspirada em lojas de beleza, sem copiar os sites de referência.
-
-## Evolução para produção
-
-1. **Backend** com banco de dados (PostgreSQL), autenticação segura (sessão HttpOnly ou tokens com rotação), confirmação de e-mail, hash de senha no servidor e autorização por recurso.
-2. **API de catálogo/estoque**, reservas transacionais e preços/descontos calculados no servidor.
-3. **Gateway de pagamento** real com webhooks idempotentes e validação de pedidos.
-4. **Integração de logística/CEP** via serviço especializado.
-5. **IA da Lila** por backend próprio com controle de acesso, limites de requisições e chave de API mantida no servidor (nunca no JavaScript público); análise facial e sugestões com consentimento específico, revisão de vieses e critérios de exclusão de fotos.
-6. Adequação à **LGPD**: aviso de privacidade, minimização, retenção/deleção, segurança, direitos dos titulares, avaliação para dados de imagem.
-7. Substituição de produtos, imagens, depoimentos, preços e contatos fictícios pelos materiais definitivos da marca.
-
-## Organização
-
-```
-TechGlam/
-├── index.html                # Casca HTML, metadata e ícones
-├── styles.css                # Design responsivo
-├── data.js                   # Catálogo de exemplo e questionário
-├── app.js                    # Navegação, estado, descontos e interações
-├── assets/                   # Ilustrações SVG originais
-├── scripts/generate_assets.py
-└── scripts/generate_variant_assets.cjs
-```
-
-As variantes em `data.js` têm IDs e listas de imagens explícitos. As imagens demonstrativas podem ser regeneradas com `node scripts/generate_variant_assets.cjs`; o gerador adapta os SVGs existentes às tonalidades já cadastradas.
-
-### Atalhos de inicialização
-
-No Windows, execute `iniciar-windows.bat`. No Linux/macOS, execute `./iniciar-linux-macos.sh`. Em ambos os casos, abra <http://localhost:5500>. É necessário ter Python instalado.
+Execute `node tests/smoke.cjs` e `node tests/variants.cjs` para testar rotas, catálogo, variantes, carrinho e checkout demonstrativo.

@@ -1,42 +1,34 @@
-/* Catálogo demonstrativo: valores, imagens, avaliações e estoques fictícios. */
-const PRODUCTS = [
- {id:'blush-velvet',name:'Blush Stick Velvet Bloom',category:'Blush em bastão',desc:'Cor cremosa que se funde à pele.',price:49.90,oldPrice:59.90,shades:['#D7889C','#BD7082','#955F6E'],shadeNames:['Rosé','Malva','Ameixa'],tone:'rosados',stock:18,rating:4.9,reviews:128,popularity:99,new:false,tag:'Mais vendido'},
- {id:'paleta-aura',name:'Paleta de Blush Aura Rosé',category:'Paletas de blush',desc:'Dois tons para um glow sem esforço.',price:89.90,oldPrice:null,shades:['#D88AAB','#C87982','#AE6C8D'],shadeNames:['Rosé','Bloom','Berry'],tone:'rosados',stock:13,rating:4.9,reviews:95,popularity:92,new:true,tag:'Lançamento'},
- {id:'cloud-tint',name:'Blush Líquido Cloud Tint',category:'Blush líquido',desc:'Pigmentação suave, construível e leve.',price:56.90,oldPrice:null,shades:['#CF728B','#DD987B','#A45F6F'],shadeNames:['Petal','Peach','Berry'],tone:'rosados',stock:24,rating:4.8,reviews:87,popularity:91,new:false,tag:'Mais vendido'},
- {id:'glass-glow',name:'Lip Oil Glass Glow',category:'Lip oil',desc:'Hidratação e brilho espelhado.',price:42.90,oldPrice:51.90,shades:['#B86591','#D990A3','#BA7468'],shadeNames:['Berry','Pink','Nude'],tone:'rosados',stock:35,rating:5.0,reviews:203,popularity:100,new:false,tag:'-17%'},
- {id:'crystal-kiss',name:'Lip Gloss Crystal Kiss',category:'Lip gloss',desc:'Lábios luminosos com conforto.',price:39.90,oldPrice:null,shades:['#C65E91','#E4A6B4','#C18B8A'],shadeNames:['Rose','Clear','Nude'],tone:'rosados',stock:11,rating:4.8,reviews:77,popularity:83,new:true,tag:'Lançamento'},
- {id:'stellar-nude',name:'Paleta Stellar Nude',category:'Paletas de maquiagem',desc:'Nove cores versáteis para todo dia.',price:119.90,oldPrice:139.90,shades:['#B78E84','#C2A1A0','#9E7196'],shadeNames:['Nude','Soft','Mauve'],tone:'neutros',stock:10,rating:4.9,reviews:65,popularity:86,new:false,tag:'Oferta'},
- {id:'soft-touch',name:'Kit Pincéis Soft Touch',category:'Pincéis e esponjas',desc:'Três essenciais para uma pele linda.',price:74.90,oldPrice:null,shades:['#A46C91','#8A5E71'],shadeNames:['Lavender','Rosé'],tone:'neutros',stock:20,rating:4.7,reviews:49,popularity:73,new:false,tag:''},
- {id:'cloud-puff',name:'Esponja Cloud Puff',category:'Pincéis e esponjas',desc:'Aplicação uniforme e acabamento natural.',price:28.90,oldPrice:null,shades:['#DDB6D4','#C8AEDC'],shadeNames:['Pink','Lilac'],tone:'neutros',stock:55,rating:4.8,reviews:72,popularity:72,new:false,tag:''},
- {id:'lumi-mirror',name:'Espelho LED Lumi Mirror',category:'Tecnologia & acessórios',desc:'Sua iluminação perfeita em qualquer lugar.',price:189.90,oldPrice:null,shades:['#C5AFDA','#F6E5F5'],shadeNames:['Lilac','Pearl'],tone:'neutros',stock:8,rating:4.8,reviews:18,popularity:64,new:true,tag:'Tech favorite'},
- {id:'coral-crush',name:'Blush Stick Coral Crush',category:'Blush em bastão',desc:'Um toque quente e radiante.',price:49.90,oldPrice:null,shades:['#DA7E6C','#C87A67','#A85B59'],shadeNames:['Coral','Peach','Terracota'],tone:'quentes',stock:16,rating:4.7,reviews:42,popularity:77,new:true,tag:'Novidade'},
- {id:'cherry-aura',name:'Lip Oil Cherry Aura',category:'Lip oil',desc:'Brilho translúcido com toque cereja.',price:42.90,oldPrice:null,shades:['#B54364','#A53E57','#D1738B'],shadeNames:['Cherry','Red','Rose'],tone:'vibrantes',stock:21,rating:4.9,reviews:61,popularity:80,new:true,tag:'Lançamento'},
- {id:'sunset-edit',name:'Paleta Sunset Edit',category:'Paletas de blush',desc:'Do pêssego ao terracota em um estojo.',price:89.90,oldPrice:109.90,shades:['#D99D77','#C88172','#B26868'],shadeNames:['Sunset','Peach','Copper'],tone:'quentes',stock:7,rating:4.6,reviews:37,popularity:65,new:false,tag:'Oferta'},
- {id:'berry-glaze',name:'Lip Gloss Berry Glaze',category:'Lip gloss',desc:'Cor intensa com acabamento luminoso.',price:39.90,oldPrice:null,shades:['#8B416D','#A65C77','#C26E83'],shadeNames:['Berry','Grape','Rose'],tone:'vibrantes',stock:0,rating:4.8,reviews:51,popularity:71,new:false,tag:'Esgotado'},
- {id:'lilac-galaxy',name:'Paleta Lilac Galaxy',category:'Paletas de maquiagem',desc:'Tons lilás e neutros para criar.',price:129.90,oldPrice:null,shades:['#9574C8','#B59CCF','#CAA9BC'],shadeNames:['Lilac','Moon','Soft'],tone:'vibrantes',stock:14,rating:4.8,reviews:33,popularity:76,new:true,tag:'Lançamento'},
- {id:'glow-duo',name:'Duo Pincéis Glow Artist',category:'Pincéis e esponjas',desc:'Precisão e maciez em cada pincelada.',price:54.90,oldPrice:null,shades:['#B6A0CD','#D5BDD6'],shadeNames:['Lilac','Pink'],tone:'neutros',stock:27,rating:4.7,reviews:25,popularity:60,new:false,tag:''},
- {id:'smart-clean',name:'Lumi Skin Clean',category:'Tecnologia & acessórios',desc:'Acessório de autocuidado com design smart.',price:159.90,oldPrice:179.90,shades:['#CFACDA','#D7C1E4'],shadeNames:['Lilac','Soft'],tone:'neutros',stock:6,rating:4.6,reviews:17,popularity:57,new:false,tag:'Oferta'}
+/* Catálogo TechGlam; imagens são mockups ilustrativos. */
+const PRODUCTS=[
+ {id:'blush-bastao',name:'Blush Bastão',category:'Blush em bastão',desc:'Cinco opções de cor para diferentes estilos.',price:45,tone:'rosados',options:[['01','Rosé','Romântico','#cf829a'],['02','Pêssego','Natural','#dc9a83'],['03','Malva','Moderno','#a77a98'],['04','Bronze','Iluminador','#bd8968'],['05','Berry','Intenso','#964d70']]},
+ {id:'blush-liquido',name:'Blush Líquido',category:'Blush líquido',desc:'Cor e leveza em cinco opções.',price:45,tone:'rosados',options:[['01','Rosé','Romântico','#cf829a'],['02','Pêssego','Natural','#dc9a83'],['03','Malva','Moderno','#a77a98'],['04','Cushion','Efeito leve e difuso','#dbafbd'],['05','Berry','Intenso','#964d70']]},
+ {id:'paleta-blush',name:'Paleta de Blush',category:'Paletas de blush',desc:'Cinco versões para diferentes estilos.',price:50,tone:'rosados',options:[['01','Rosé','Romântico','#cf829a'],['02','Pêssego','Natural','#dc9a83'],['03','Malva','Moderno','#a77a98'],['04','Bronze','Iluminador','#bd8968'],['05','Berry','Intenso','#964d70']]},
+ {id:'paleta-sombra',name:'Paleta de Sombra',category:'Paletas de sombra',desc:'Seis versões para criar combinações.',price:70,tone:'neutros',options:[['01','Nude Essencial','Versatilidade e elegância para todo dia','#b28a78'],['02','Golden Hour','Brilho e sofisticação em todos os momentos','#cda461'],['03','Bronze Vibes','A intensidade do bronze com um toque de glamour','#a16b49'],['04','Pink Mood','Cor, atitude e personalidade em cada olhar','#d36c9a'],['05','Moonlight','Para um olhar marcante e inesquecível','#6f6e9b'],['06','Rainbow','Cores que realçam o que te torna única','linear-gradient(45deg,#e05c85,#f3bd56,#6dbfa2,#7772c7)']]},
+ {id:'lip-gloss',name:'Lip Gloss Tradicional',category:'Lip gloss',desc:'Brilho para os lábios em dez tonalidades.',price:46,tone:'rosados',options:[['01','Rosa Cristal','Brilho delicado e glamuroso','#e9b8c8'],['02','Rosa Bebê','Realça a beleza natural','#e9a9bb'],['03','Pink Intenso','Cor vibrante com brilho irresistível','#d74983'],['04','Cereja Suave','Traz vida e frescor aos lábios','#bf6175'],['05','Vermelho Clássico','Elegância em cada aplicação','#ae354f'],['06','Coral Vivo','Um toque de energia e cor','#e37865'],['07','Pêssego Nude','Leveza no dia a dia','#d7a28f'],['08','Nude Rosado','Equilíbrio perfeito entre cor e brilho','#c58d93'],['09','Malva Elegante','Sofisticação em cada detalhe','#9d7389'],['10','Cacau Chic','Profundidade e elegância natural','#825a55']]},
+ {id:'lip-oil-fruits',name:'Lip Oil Fruits',category:'Lip oil',desc:'Lip oil inspirado em frutas.',price:46,tone:'vibrantes',options:[['01','Melancia','','#e7717e'],['02','Mirtilo','','#7772a9'],['03','Morango','','#d65e73'],['04','Pêssego','','#e7aa82'],['05','Cereja','','#b94f65']]},
+ {id:'kit-esponjas',name:'Kit Esponjas',category:'Pincéis e esponjas',desc:'Kit de esponjas para aplicar maquiagem.',price:30,tone:'neutros'},
+ {id:'kit-pinceis',name:'Kit Pincéis',category:'Pincéis e esponjas',desc:'Kit de pincéis para aplicar maquiagem.',price:50,tone:'neutros'},
+ {id:'maquina-glamix',name:'Impressora de Maquiagem Glamix',category:'Linha Tecnológica TechGlam',desc:'Impressora inteligente conectada a um aplicativo para criar tonalidades de maquiagem personalizadas. Acompanha cinco cartuchos: vermelho, azul, amarelo, branco e preto. Prepara e libera o produto pela parte inferior para guardar em recipiente portátil com tampa. Possui espelho na tampa superior e pincel acoplado.',price:1650,tone:'neutros'},
+ {id:'kit-cartuchos',name:'Kit com 5 Cartuchos Glamix',category:'Linha Tecnológica TechGlam',desc:'Kit de reposição exclusivo para a Impressora Glamix com pigmentos vermelho, azul, amarelo, branco e preto.',price:500,tone:'vibrantes'},
+ {id:'cartucho-individual',name:'Cartucho Individual / Refil Glamix',category:'Linha Tecnológica TechGlam',desc:'Refil exclusivo para a Impressora Glamix. Substitua somente o pigmento esgotado.',price:120,tone:'vibrantes',options:[['01','Vermelho','Pigmento de reposição','#c84b55'],['02','Azul','Pigmento de reposição','#547dbb'],['03','Amarelo','Pigmento de reposição','#e3bd4a'],['04','Branco','Pigmento de reposição','#f0efeb'],['05','Preto','Pigmento de reposição','#303039']]}
 ];
-// As opções abaixo vêm exclusivamente dos tons já cadastrados acima.
-// Cada imagem pertence a uma variante por ID, independentemente da ordem na galeria.
-for (const product of PRODUCTS) {
- const slug = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
- product.variants = (product.shadeNames||[]).map((name,index) => {
-  const id = `${product.id}-${slug(name)}`;
-  return {id,name,swatch:product.shades?.[index],images:[{id:`${id}-main`,src:`./assets/variants/${id}.svg`,alt:`${product.name} na opção ${name}`}]};
- });
- product.images = [{id:`${product.id}-base`,src:`./assets/${product.id}.svg`,alt:`Ilustração de ${product.name}`}];
+const slug=value=>value.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+for(const product of PRODUCTS){
+ product.variants=(product.options||[]).map(([number,name,description,swatch])=>{const id=`${product.id}-${slug(name)}`;return{id,number,name,description,swatch,images:[{id:`${id}-main`,src:`./assets/products/${id}.webp`,alt:`Mockup ilustrativo de ${product.name} na opção ${name}`}]};});
+ product.images=product.variants.length?product.variants[0].images:[{id:`${product.id}-main`,src:`./assets/products/${product.id}.webp`,alt:`Mockup ilustrativo de ${product.name}`}];
+ product.image=product.images[0].src;
+ delete product.options;
 }
-const CATEGORIES = ['Blush em bastão','Paletas de blush','Blush líquido','Lip oil','Lip gloss','Paletas de maquiagem','Pincéis e esponjas','Tecnologia & acessórios'];
-const CATEGORY_FEATURES = [
- {name:'Blush em bastão',product:'blush-velvet',subtitle:'Cor natural'},
- {name:'Paletas de blush',product:'paleta-aura',subtitle:'Duas vezes mais glow'},
- {name:'Blush líquido',product:'cloud-tint',subtitle:'Leveza na pele'},
- {name:'Lip oil',product:'glass-glow',subtitle:'Brilho & cuidado'},
- {name:'Paletas de maquiagem',product:'stellar-nude',subtitle:'Infinitas combinações'},
- {name:'Acessórios',category:'Pincéis e esponjas',product:'soft-touch',subtitle:'Seu ritual completo'}
+const CATEGORIES=['Blush em bastão','Blush líquido','Paletas de blush','Paletas de sombra','Lip gloss','Lip oil','Pincéis e esponjas','Linha Tecnológica TechGlam'];
+const CATEGORY_FEATURES=[
+ {name:'Blush em bastão',product:'blush-bastao',subtitle:'Sua cor, seu jeito'},
+ {name:'Blush líquido',product:'blush-liquido',subtitle:'Leveza e cor'},
+ {name:'Paletas de blush',product:'paleta-blush',subtitle:'Cinco estilos'},
+ {name:'Paletas de sombra',product:'paleta-sombra',subtitle:'Crie combinações'},
+ {name:'Lábios',category:'Lip gloss',product:'lip-gloss',subtitle:'Cor e brilho'},
+ {name:'Glamix',category:'Linha Tecnológica TechGlam',product:'maquina-glamix',subtitle:'Beleza personalizada'}
 ];
-const QUESTIONS = [
+const QUESTIONS=[
  {title:'Qual intensidade de maquiagem você mais gosta?',options:['Leve e natural','Média, equilibrada','Marcante e expressiva']},
  {title:'Quando você costuma se maquiar?',options:['No dia a dia','Em ocasiões especiais','Um pouco dos dois']},
  {title:'Quais tons mais combinam com seu estilo?',options:['Neutros e terrosos','Rosados e delicados','Quentes e solares','Vibrantes e criativos']},
