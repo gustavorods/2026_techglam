@@ -14,14 +14,14 @@ Alternativa: `npx serve .` (se já tiver Node.js e o pacote disponível). Para u
 
 ## Testes de lógica
 
-Execute `node tests/smoke.cjs` para validar as 12 rotas, migração do carrinho, login, cupons, checkout demonstrativo e redefinição local de senha. Esses testes não substituem testes de interface no navegador.
+Execute `node tests/smoke.cjs` e `node tests/variants.cjs` para validar rotas, carrinho, login, checkout demonstrativo e sincronização de variantes. Esses testes não substituem testes de interface no navegador.
 
 ## Funcionalidades
 
 | Área | Implementação |
 | --- | --- |
 | Vitrine e catálogo | 16 produtos fictícios com ilustrações SVG originais; busca, filtros e ordenação |
-| Produtos | Imagens, estoque de exemplo, variação de tonalidade, notas ilustrativas, inclusão na sacola |
+| Produtos | Galeria com setas, swipe e seleção de variantes sincronizada, estoque de exemplo e inclusão na sacola |
 | Carrinho | Adição, exclusão, alteração de quantidades, subtotal, desconto, cupom e frete estimado |
 | Favoritos | Persistidos por perfil; favoritos de visitante migram no login |
 | Conta | Cadastro, login, senha derivada com Web Crypto/PBKDF2, edição do perfil, pedidos e cupons — **somente local** |
@@ -71,8 +71,11 @@ TechGlam/
 ├── data.js                   # Catálogo de exemplo e questionário
 ├── app.js                    # Navegação, estado, descontos e interações
 ├── assets/                   # Ilustrações SVG originais
-└── scripts/generate_assets.py
+├── scripts/generate_assets.py
+└── scripts/generate_variant_assets.cjs
 ```
+
+As variantes em `data.js` têm IDs e listas de imagens explícitos. As imagens demonstrativas podem ser regeneradas com `node scripts/generate_variant_assets.cjs`; o gerador adapta os SVGs existentes às tonalidades já cadastradas.
 
 ### Atalhos de inicialização
 

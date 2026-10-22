@@ -17,6 +17,16 @@ const PRODUCTS = [
  {id:'glow-duo',name:'Duo Pincéis Glow Artist',category:'Pincéis e esponjas',desc:'Precisão e maciez em cada pincelada.',price:54.90,oldPrice:null,shades:['#B6A0CD','#D5BDD6'],shadeNames:['Lilac','Pink'],tone:'neutros',stock:27,rating:4.7,reviews:25,popularity:60,new:false,tag:''},
  {id:'smart-clean',name:'Lumi Skin Clean',category:'Tecnologia & acessórios',desc:'Acessório de autocuidado com design smart.',price:159.90,oldPrice:179.90,shades:['#CFACDA','#D7C1E4'],shadeNames:['Lilac','Soft'],tone:'neutros',stock:6,rating:4.6,reviews:17,popularity:57,new:false,tag:'Oferta'}
 ];
+// As opções abaixo vêm exclusivamente dos tons já cadastrados acima.
+// Cada imagem pertence a uma variante por ID, independentemente da ordem na galeria.
+for (const product of PRODUCTS) {
+ const slug = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+ product.variants = (product.shadeNames||[]).map((name,index) => {
+  const id = `${product.id}-${slug(name)}`;
+  return {id,name,swatch:product.shades?.[index],images:[{id:`${id}-main`,src:`./assets/variants/${id}.svg`,alt:`${product.name} na opção ${name}`}]};
+ });
+ product.images = [{id:`${product.id}-base`,src:`./assets/${product.id}.svg`,alt:`Ilustração de ${product.name}`}];
+}
 const CATEGORIES = ['Blush em bastão','Paletas de blush','Blush líquido','Lip oil','Lip gloss','Paletas de maquiagem','Pincéis e esponjas','Tecnologia & acessórios'];
 const CATEGORY_FEATURES = [
  {name:'Blush em bastão',product:'blush-velvet',subtitle:'Cor natural'},

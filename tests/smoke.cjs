@@ -15,10 +15,12 @@ async function main(){
  T.ui.authReturn='checkout';
  await send('register-form',{name:'Maria Teste',email:'maria@example.com',password:'TesteLocal@2026'});
  assert(T.db.session==='maria@example.com','should have logged in');assert(T.account().cart.length===2,'guest cart preserved');assert(T.account().favorites.includes('glass-glow'),'guest fav preserved');
+ url='#checkout';T.render(false);assert(nodes['#app'].innerHTML.includes('Itens do pedido'),'checkout item review');assert(nodes['#app'].innerHTML.includes('Cor: Berry'),'checkout variant review');
  T.db.coupon='BEMVINDA10';const first=T.totals();
  assert(first.couponRate===.10 && first.first && first.ship===0,'first order coupon and shipping');
  await send('checkout-form',{name:'Maria Teste',phone:'(11) 99999-0000',cep:'01234-567',number:'123',street:'Rua das Flores',city:'São Paulo',state:'SP',payment:'Pix demonstrativo'});
  assert(T.account().orders.length===1,'order stored');assert(T.account().cart.length===0,'cart reset');assert(url==='#pedido','success route');
+ const bought=T.account().orders[0].items[0];assert(bought.variantId==='glass-glow-berry','order variant retained');assert(bought.variantName==='Berry','order variant name retained');assert(bought.image.includes('glass-glow-berry.svg'),'order variant image retained');
  console.log('register, cart migration, coupon, checkout: PASS');
  T.db.session=null;
  await send('login-form',{email:'maria@example.com',password:'senhaerrada'});
